@@ -8,7 +8,7 @@
                 <div class="card mx-auto" id="createForum">
                     <div class="card-body">
                         <h2 class="card-title">新起一個討論區</h2>
-                        <form method="post" action="/forum" enctype="multipart/form-data">
+                        <form method="post" action="/forum/store">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="name">討論區個名</label>

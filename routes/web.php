@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('forum', 'ForumController@index');
 Route::get('forum/create', 'ForumController@create');
+Route::post('/forum/store', 'ForumController@store');

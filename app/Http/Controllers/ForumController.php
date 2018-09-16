@@ -14,4 +14,10 @@ class ForumController extends Controller {
     public function create() {
         return view('forum.create');
     }
+
+    public function store() {
+        var_dump(request('name'));
+        var_dump(request('desc'));
+        var_dump(request('url'));
+    }
 }
