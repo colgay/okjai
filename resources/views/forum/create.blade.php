@@ -8,22 +8,24 @@
                 <div class="card mx-auto" id="createForum">
                     <div class="card-body">
                         <h2 class="card-title">新起一個討論區</h2>
-                        <form method="post" action="/forum/store">
-                            {{ csrf_field() }}
-                            <div class="form-group">
-                                <label for="name">討論區個名</label>
-                                <input name="name" type="text" class="form-control" id="nameid" placeholder="討論區叫咩名">
+                        {!! Form::open(['route'=>'forum.store']) !!}
+                            <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+                                {!! Form::label('討論區個名') !!}
+                                {!! Form::text('name', old('name'), ['class'=>'form-control', 'placeholder'=>'討論區叫咩名']) !!}
+                                <span class="text-danger">{{ $errors->first('name') }}</span>
                             </div>
-                            <div class="form-group">
-                                <label for="desc">討論區介紹</label>
-                                <input name="desc" type="text" class="form-control" id="descid" placeholder="介紹下個討論區係點">
+                            <div class="form-group {{ $errors->has('desc') ? 'has-error' : '' }}">
+                                {!! Form::label('討論區介紹') !!}
+                                {!! Form::text('desc', old('desc'), ['class'=>'form-control', 'placeholder'=>'介紹一下個討論區係點']) !!}
+                                <span class="text-danger">{{ $errors->first('desc') }}</span>
                             </div>
-                            <div class="form-group">
-                                <label for="url">討論區網址</label>
-                                <input name="url" type="text" class="form-control" id="urlid" placeholder="討論區條link係點">
+                            <div class="form-group {{ $errors->has('url') ? 'has-error' : '' }}">
+                                {!! Form::label('討論區網址') !!}
+                                {!! Form::text('url', old('url'), ['class'=>'form-control', 'placeholder'=>'討論區條link係咩']) !!}
+                                <span class="text-danger">{{ $errors->first('url') }}</span>
                             </div>
                             <button type="submit" class="btn btn-primary">整</button>
-                        </form>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

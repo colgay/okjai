@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('forum', 'ForumController@index');
+Route::get('', 'ForumController@index');
 Route::get('forum/create', 'ForumController@create');
-Route::post('/forum/store', 'ForumController@store');
+Route::post('forum/store', ['as'=>'forum.store','uses'=>'ForumController@store']);
